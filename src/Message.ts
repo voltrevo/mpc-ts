@@ -1,3 +1,4 @@
+import CommutableCipher from "./CommutableCipher.ts";
 import p from "./p.ts";
 
 export default class Message {
@@ -30,5 +31,12 @@ export default class Message {
 
     return new TextDecoder().decode(Uint8Array.from(bytes.reverse()));
   }
+
+  encrypt(c: CommutableCipher): Message {
+    return c.encrypt(this);
+  }
+
+  decrypt(c: CommutableCipher): Message {
+    return c.decrypt(this);
+  }
 }
-  
