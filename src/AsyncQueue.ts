@@ -1,6 +1,6 @@
 export default class AsyncQueue<T> {
   messages: T[] = [];
-  pendingResolves: ((msg: T) => void)[];
+  pendingResolves: ((msg: T) => void)[] = [];
 
   push(msg: T) {
     if (this.pendingResolves.length > 0) {
